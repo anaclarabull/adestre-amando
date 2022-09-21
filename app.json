@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "adestre-amando",
+    "slug": "adestre-amando",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "adestre-amando"
+}
