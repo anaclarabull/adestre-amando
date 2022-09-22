@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Image, ImageBackground, StatusBar, StyleSheet, TextInput, TouchableOpacity, View } from 'react-native';
+import { Alert, ImageBackground, StatusBar, StyleSheet, TextInput, TouchableOpacity, View } from 'react-native';
 import { InputText } from '../../components/Input/styles';
 import { Button, ButtonAdd, ButtonText } from '../Home/styles';
 import { Ionicons } from '@expo/vector-icons';
@@ -12,9 +12,20 @@ import {
 
 const image = { uri: "https://images.pexels.com/photos/2123773/pexels-photo-2123773.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" };
 
+interface Login {
+  user: string;
+  password: string;
+}
+
 export function Signin() {
 
-  const [input, setInput] = useState('');
+  const login = {
+    user: "anaclara@gmail.com",
+    password: "123456"
+  } as Login;
+
+  const [inputPassword, setInputPassword] = useState('');
+  const [inputEmail, setInputEmail] = useState('');
   const [hidePass, setHidePass] = useState(true);
 
   const navigation = useNavigation();
@@ -23,6 +34,20 @@ export function Signin() {
     navigation.dispatch(CommonActions.navigate({
       name: "Registration"
     }))
+  }
+  function goHome() {
+    navigation.dispatch(CommonActions.navigate({
+      name: "Home"
+    }))
+  }
+
+  function handleSignIn(){
+    if (inputPassword !== login.password && inputEmail !== login.user){
+      Alert.alert("Erro login", "Usuário ou senha incorretos!")
+      return;
+    } else {
+      goHome();
+    }
   }
 
   return (
@@ -41,15 +66,16 @@ export function Signin() {
             <SubTitle>Faça login ou cadastre-se para uma melhor experiência!</SubTitle>
           </Header>
 
-          <InputText placeholder="E-mail" />
+                
+          <InputText placeholder="E-mail" value={inputEmail} onChangeText={(emailText) => setInputEmail(emailText)}/>
 
           <View style={styles.container}>
             <View style={styles.inputArea}>
               <TextInput
                 style={styles.input}
                 placeholder="Senha"
-                value={input}
-                onChangeText={(texto) => setInput(texto)}
+                value={inputPassword}
+                onChangeText={(texto) => setInputPassword(texto)}
                 secureTextEntry={hidePass}
               />
               <TouchableOpacity style={styles.icon} onPress={() => setHidePass(!hidePass)}>
@@ -64,7 +90,7 @@ export function Signin() {
 
           <Button>
             <ButtonAdd>
-              <ButtonText>Entrar</ButtonText>
+              <ButtonText onPress={handleSignIn}>Entrar</ButtonText>
             </ButtonAdd>
             <ButtonAdd style={styles.button}>
               <ButtonText style={styles.buttonText} onPress={goRegistration}>Cadastrar</ButtonText>
