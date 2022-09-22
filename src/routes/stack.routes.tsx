@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Home } from '../screens/Home';
 import { AddSkill } from '../screens/AddSkill';
 import { Signin } from '../screens/Signin';
+import { Registration } from '../screens/Registration';
 
 const { Navigator, Screen } = createNativeStackNavigator();
 
@@ -23,6 +24,11 @@ export function StackRoutes() {
             <Screen
                 name="Signin"
                 component={Signin}
+                options={{ headerShown: false }}
+            />
+            <Screen
+                name="Registration"
+                component={Registration}
                 options={{ headerShown: false }}
             />
         </Navigator>

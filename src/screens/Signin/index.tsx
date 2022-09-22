@@ -3,6 +3,7 @@ import { Image, ImageBackground, StatusBar, StyleSheet, TextInput, TouchableOpac
 import { InputText } from '../../components/Input/styles';
 import { Button, ButtonAdd, ButtonText } from '../Home/styles';
 import { Ionicons } from '@expo/vector-icons';
+import { useNavigation, CommonActions } from '@react-navigation/native'
 
 
 import {
@@ -15,6 +16,14 @@ export function Signin() {
 
   const [input, setInput] = useState('');
   const [hidePass, setHidePass] = useState(true);
+
+  const navigation = useNavigation();
+
+  function goRegistration() {
+    navigation.dispatch(CommonActions.navigate({
+      name: "Registration"
+    }))
+  }
 
   return (
     <>
@@ -58,7 +67,7 @@ export function Signin() {
               <ButtonText>Entrar</ButtonText>
             </ButtonAdd>
             <ButtonAdd style={styles.button}>
-              <ButtonText style={styles.buttonText}>Cadastrar</ButtonText>
+              <ButtonText style={styles.buttonText} onPress={goRegistration}>Cadastrar</ButtonText>
             </ButtonAdd>
           </Button>
 
