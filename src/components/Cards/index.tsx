@@ -1,7 +1,7 @@
 import React from 'react';
 
 import PlusSvg from '../../assets/plus.svg';
-import DogImage from '../../assets/sentar.svg';
+// import DogImage from '../../assets/sentar.svg';
 
 import {
   Container,
@@ -12,10 +12,23 @@ import {
   Icon,
   Level,
   LevelText,
+  LevelSelect,
   Skill,
+  DogImage
 } from './style';
 
-export function Cards() {
+interface SkillData {
+  name: string;
+  description: string;
+  imageUrl: string;
+  level: string;
+}
+
+interface Props {
+  data: SkillData;
+}
+
+export function Cards({ data } : Props) {
   return (
     <Container>
       <Details>
@@ -24,22 +37,24 @@ export function Cards() {
           <Icon>
             <PlusSvg />
           </Icon>
-          <Title>Sentar</Title>
+          <Title>{data.name}</Title>
         </About>
 
-        <Text>Comando para o pet sentar.</Text>
+        <Text>{data.description}</Text>
 
         <Level>
           <LevelText>Nível</LevelText>
-          {/* LevelIconStar */}
+          <LevelSelect>{data.level}</LevelSelect>
         </Level>
 
       </Details>
 
       <Skill>
-        <DogImage />
+        <DogImage source={{ uri: data.imageUrl }}
+          resizeMode="contain"
+        />
       </Skill>
-      
+
     </Container>
   );
 }

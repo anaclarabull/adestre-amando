@@ -1,7 +1,7 @@
 export default {
     colors: {
         primary: '#FFFC78',
-        background: '#FAFAFA',
+        background: '#EFEFEF',
         input_bg: '#F5F5F5',
         input_edge: '#9E9E9E',
         black: '#000000',

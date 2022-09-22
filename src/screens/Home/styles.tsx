@@ -1,5 +1,6 @@
 import styled from 'styled-components/native';
-import { RFValue } from 'react-native-responsive-fontsize'
+import { FlatList } from 'react-native';
+import { RFValue } from 'react-native-responsive-fontsize';
 
 
 export const Container = styled.View`
@@ -19,4 +20,13 @@ export const Title = styled.Text`
  font-family: ${({ theme }) => theme.fonts.medium};
  font-size: ${RFValue(30)}px;
  padding: 24px 0 10px 24px;
+`;
+
+export const SkillList = styled(FlatList).attrs({
+    contentContainerStyle: {
+        padding: 24
+    },
+    showsVerticalScrollIndicator: false
+})`
+ 
 `;
