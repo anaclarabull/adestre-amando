@@ -12,6 +12,11 @@ export function StackRoutes() {
     return (
         <Navigator>
             <Screen
+                name="Signin"
+                component={Signin}
+                options={{ headerShown: false }}
+            />
+            <Screen
                 name="Home"
                 component={Home}
                 options={{ headerShown: false }}
@@ -21,11 +26,7 @@ export function StackRoutes() {
                 component={AddSkill}
                 options={{ headerShown: false }}
             />
-            <Screen
-                name="Signin"
-                component={Signin}
-                options={{ headerShown: false }}
-            />
+            
             <Screen
                 name="Registration"
                 component={Registration}
