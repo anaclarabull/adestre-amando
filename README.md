@@ -23,6 +23,10 @@ $ yarn
 
 # Execute a aplicação em modo de desenvolvimento
 $ npx expo start
+
+# Usuário e senha para Login
+$ anaclara@gmail.com
+$ 123456
 ```
 
 ### 👨‍🚀 Desenvolvedora
