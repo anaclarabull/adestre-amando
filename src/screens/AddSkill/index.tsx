@@ -1,7 +1,6 @@
 import React, { useRef } from 'react';
 import { TextInput, View } from 'react-native';
 import { Modalize } from 'react-native-modalize';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 import { BackButton } from '../../components/BackButton';
 import { HeaderTop } from '../../components/HeaderTop';
@@ -12,12 +11,15 @@ import {
 import { Button, ButtonAdd, ButtonText, SkillList } from '../Home/styles';
 import { Cards } from '../../components/Cards';
 
+
+
 export function AddSkill() {
   const modalizeRef = useRef(null);
 
   function onOpen() {
     modalizeRef.current?.open();
   }
+
 
   const skillData = {
     name: 'Sentar',

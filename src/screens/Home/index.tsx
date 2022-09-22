@@ -1,6 +1,8 @@
 import React from 'react';
 import { Cards } from '../../components/Cards';
 import { HeaderTop } from '../../components/HeaderTop';
+import { useNavigation, CommonActions } from '@react-navigation/native'
+
 
 import {
   Container, Title, SkillList, Button, ButtonAdd, ButtonText
@@ -9,12 +11,22 @@ import {
 
 export function Home() {
 
+  const navigation = useNavigation();
+
+
+  function goAddSkill() {
+    navigation.dispatch(CommonActions.navigate({
+      name: "AddSkill"
+    }))
+  }
+
   const skillData = {
     name: 'Sentar',
     description: 'Comando para o pet sentar.',
     imageUrl: 'https://assets.stickpng.com/images/580b57fbd9996e24bc43bbdf.png',
     level: 'Fácil',
   }
+
 
   return (
     <Container>
@@ -29,7 +41,7 @@ export function Home() {
       />
       <Button>
         <ButtonAdd>
-          <ButtonText>Add treinamento</ButtonText>
+          <ButtonText onPress={goAddSkill}>Add treinamento</ButtonText>
         </ButtonAdd>
       </Button> 
     </Container>
