@@ -22,4 +22,5 @@ export const SubTitle = styled.Text`
     font-size: ${RFValue(20)}px;
     font-family: ${({ theme }) => theme.fonts.regular};
     color: ${({ theme }) => theme.colors.white};
+    margin-bottom: 15px;
 `;
