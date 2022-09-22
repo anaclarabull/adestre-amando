@@ -1,15 +1,11 @@
 import React from 'react';
-import { Image, StatusBar, Text, View } from 'react-native';
-import Logo from '../../assets/Dog_logo.svg';
-import { RFValue } from 'react-native-responsive-fontsize';
-
-import {
-  Container, Header, Title, SkillList, Button, ButtonAdd, ButtonText
-} from './styles';
-
 import { Cards } from '../../components/Cards';
 import { HeaderTop } from '../../components/HeaderTop';
-import { DogImage } from '../../components/Cards/style';
+
+import {
+  Container, Title, SkillList, Button, ButtonAdd, ButtonText
+} from './styles';
+
 
 export function Home() {
 
@@ -27,7 +23,7 @@ export function Home() {
       <Title>Seu treinamento</Title>
 
       <SkillList
-        data={[1, 2, 3]}
+        data={[1, 2, 3, 4, 5]}
         keyExtractor={item => String(item)}
         renderItem={({ item }) => <Cards data={skillData} />}
       />

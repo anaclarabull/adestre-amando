@@ -3,8 +3,6 @@ import { RFValue } from 'react-native-responsive-fontsize'
 import { Image } from 'react-native';
 
 export const Container = styled.View`
- flex: 1;
- width: 100%;
  height: ${RFValue(129)}px;
 
  background-color: ${({theme}) => theme.colors.white};

@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { View } from 'react-native';
+import { TextInput, View } from 'react-native';
 import { Modalize } from 'react-native-modalize';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
@@ -7,8 +7,10 @@ import { BackButton } from '../../components/BackButton';
 import { HeaderTop } from '../../components/HeaderTop';
 
 import {
-  Container, Title, Button, ButtonAdd, ButtonText, ModalTitle, InputGroup, Input, InputText, Modal
+  Container, Title, ModalTitle, InputGroup, Input, InputText, Modal
 } from './styles';
+import { Button, ButtonAdd, ButtonText, SkillList } from '../Home/styles';
+import { Cards } from '../../components/Cards';
 
 export function AddSkill() {
   const modalizeRef = useRef(null);
@@ -17,42 +19,61 @@ export function AddSkill() {
     modalizeRef.current?.open();
   }
 
+  const skillData = {
+    name: 'Sentar',
+    description: 'Comando para o pet sentar.',
+    imageUrl: 'https://assets.stickpng.com/images/580b57fbd9996e24bc43bbdf.png',
+    level: 'Fácil',
+  }
+
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
-    <Container>
-      <HeaderTop />
-      <BackButton />
-      <Title>Add treinamento</Title>
-      <Button>
-        <ButtonAdd onPress={onOpen}>
-          <ButtonText >Cadastrar treinamento</ButtonText>
-        </ButtonAdd>
-      </Button>
+    <>
+      <Container>
+        <HeaderTop />
+        <BackButton />
+        <Title>Add treinamento</Title>
 
-     
+        <SkillList
+          data={[1, 2, 3]}
+          keyExtractor={item => String(item)}
+          renderItem={({ item }) => <Cards data={skillData} />}
+        />
 
-    </Container>
+        <Button>
+          <ButtonAdd onPress={onOpen}>
+            <ButtonText >Cadastrar treinamento</ButtonText>
+          </ButtonAdd>
+        </Button>
 
-    <Modalize
+
+
+      </Container>
+      <Modalize
         ref={modalizeRef}
-        modalHeight={350}
-        snapPoint={180}
+        modalHeight={500}
+        snapPoint={350}
         HeaderComponent={
           <Modal>
-          <ModalTitle>Cadastrar treinamento</ModalTitle>
-        </Modal>
+            <ModalTitle>Cadastrar treinamento</ModalTitle>
+          </Modal>
         }
       >
-        
         <InputGroup>
           <Input>
-            <InputText>Nome</InputText>
+            <TextInput
+              placeholder="Nome"
+            />
           </Input>
           <Input>
-            <InputText>Descrição</InputText>
+            <TextInput
+              placeholder="Descrição"
+            />
           </Input>
           <Input>
-            <InputText>Link imagem</InputText>
+            <TextInput
+              placeholder="Link imagem"
+              keyboardType='url'
+            />
           </Input>
         </InputGroup>
 
@@ -63,6 +84,6 @@ export function AddSkill() {
         </Button>
 
       </Modalize>
-    </GestureHandlerRootView>
+      </>
   );
 }

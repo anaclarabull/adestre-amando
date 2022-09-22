@@ -7,3 +7,9 @@ export const Container = styled.View`
     justify-content: flex-end;
     padding-left: 10px;
 `;
+export const Navbar = styled.View`
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 10px;
+`;

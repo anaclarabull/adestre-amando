@@ -13,7 +13,7 @@ export function BackButton(){
         <MaterialIcons 
             name="chevron-left"
             size={40}
-            color={theme.colors.gray}
+            color={theme.colors.black}
         />
     </Container>
   );
