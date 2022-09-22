@@ -36,14 +36,6 @@ export const Button = styled.View`
  align-items: center;
 `;
 
-export const ButtonText = styled.Text`
- color: ${({theme}) => theme.colors.white};
- font-family: ${({ theme }) => theme.fonts.bold};
-font-size: ${RFValue(18)}px;
-align-items: center;
-
-`;
-
 export const ButtonAdd = styled.TouchableOpacity`
  width: 90%;
  height: 51px;
@@ -56,3 +48,11 @@ export const ButtonAdd = styled.TouchableOpacity`
  border-radius: 15px;
 
 `;
+
+export const ButtonText = styled.Text`
+ color: ${({theme}) => theme.colors.white};
+ font-family: ${({ theme }) => theme.fonts.bold};
+font-size: 18px;
+align-items: center;
+`;
+
