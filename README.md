@@ -1,6 +1,6 @@
 <h1 align="center">Adestre Amando</h1>
 <h2> Descrição do Projeto</h2>
-<p>App que auxilia à adestrar seu pet..</p>
+<p>App que auxilia à adestrar seu pet.</p>
 
 
 ### 🛠 Tecnologias
